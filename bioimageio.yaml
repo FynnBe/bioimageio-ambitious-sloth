@@ -1,4 +1,11 @@
-attachments: { "files": ["environment.yaml", "model.py"] }
+attachments:
+  {
+    "files":
+      [
+        "https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/environment.yaml",
+        "https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/model.py",
+      ],
+  }
 authors:
   - {
       affiliation: EMBL Heidelberg,
@@ -15,8 +22,14 @@ cite:
 config:
   _conceptdoi: 10.5281/zenodo.7614645
   bioimageio:
-    thumbnails: { cover.png: cover.thumbnail.png }
-covers: [cover.png]
+    thumbnails:
+      {
+        https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/cover.png: https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/cover.thumbnail.png,
+      }
+covers:
+  [
+    https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/cover.png,
+  ]
 description:
   HyLFM-Net trained on static images of arrested medaka hatchling hearts.
   The network reconstructs a volumentric image from a given light-field.
@@ -54,8 +67,14 @@ outputs:
     halo: [0, 0, 0, 0, 0]
     name: prediction
     shape: [1, 1, 49, 244, 284]
-sample_inputs: [sample_input.tif]
-sample_outputs: [sample_output.tif]
+sample_inputs:
+  [
+    https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/sample_input.tif,
+  ]
+sample_outputs:
+  [
+    https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/sample_output.tif,
+  ]
 tags:
   [
     light-field-microscopy,
@@ -65,9 +84,15 @@ tags:
     nuclei,
     hylfm,
   ]
-test_inputs: [test_input.npy]
-test_outputs: [test_output.npy]
-timestamp: "2023-02-15T09:34:43.433531"
+test_inputs:
+  [
+    https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/test_input.npy,
+  ]
+test_outputs:
+  [
+    https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/test_output.npy,
+  ]
+timestamp: "2023-02-15T09:34:43.433531Z"
 training_data: { id: 10.5281/zenodo.7612115 }
 type: model
 uploader: { email: bioimageiobot@gmail.com }
@@ -82,9 +107,9 @@ weights:
       source: weights.onnx,
     }
   pytorch_state_dict:
-    architecture: model.py:HyLFM_Net
+    architecture: https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/model.py:HyLFM_Net
     architecture_sha256: fbd9428f7352a8c6bca8a47e9b85d9afe95edb35b716cc909f5cfc530f2280d3
-    dependencies: conda:environment.yaml
+    dependencies: conda:https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/environment.yaml
     kwargs:
       c_in_3d: 64
       c_res2d: [768, 768, 512, 256, u384, 512, 256]
@@ -97,11 +122,11 @@ weights:
       z_out: 49
     pytorch_version: 1.7
     sha256: 461f1151d7fea5857ce8f9ceaf9cdf08b5f78ce41785725e39a77d154ccea90a
-    source: weights.pt
+    source: https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/weights.pt
   torchscript:
     {
       parent: pytorch_state_dict,
       pytorch_version: 1.7,
       sha256: ec01e0c212b5eb422dda208af004665799637a2f2729d0ebf2e884e5d9966fc2,
-      source: weights_torchscript.pt,
+      source: https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/weights_torchscript.pt,
     }

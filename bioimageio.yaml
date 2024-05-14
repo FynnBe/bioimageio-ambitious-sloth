@@ -1,11 +1,3 @@
-attachments:
-  {
-    "files":
-      [
-        "https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/environment.yaml",
-        "https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/model.py",
-      ],
-  }
 authors:
   - {
       affiliation: EMBL Heidelberg,

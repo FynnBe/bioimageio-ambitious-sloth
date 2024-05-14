@@ -1,0 +1,13 @@
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: ["**"]
+
+
+jobs:
+  test:
+    uses: fynnbe/bioimageio-contribute/.github/workflows/test.yaml@main  # TODO: main -> v1
+

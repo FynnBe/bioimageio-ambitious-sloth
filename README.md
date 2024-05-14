@@ -1,2 +1,1 @@
-# bioimageio-ambitious-sloth
-draft for a model repo
+# bioimageio contribution: ambitious-sloth

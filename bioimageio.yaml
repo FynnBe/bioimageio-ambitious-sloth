@@ -1,0 +1,124 @@
+authors:
+  - {
+      affiliation: EMBL Heidelberg,
+      name: Fynn Beuttenmueller,
+      orcid: 0000-0002-8567-6389,
+    }
+cite:
+  - {
+      doi: 10.1038/s41592-021-01136-0,
+      text: "Beuttenmueller, Wagner, N., F., Norlin,
+        N. et al. Deep learning-enhanced light-field imaging with continuous validation.
+        Nat Methods 18, 557–563 (2021).",
+    }
+config:
+  _conceptdoi: 10.5281/zenodo.7614645
+  bioimageio:
+    thumbnails:
+      {
+        https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/cover.png: https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/cover.thumbnail.png,
+      }
+covers:
+  [
+    https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/cover.png,
+  ]
+description:
+  HyLFM-Net trained on static images of arrested medaka hatchling hearts.
+  The network reconstructs a volumentric image from a given light-field.
+documentation: README.md
+format_version: 0.4.10
+git_repo: https://github.com/kreshuklab/hylfm-net
+id: ambitious-sloth
+id_emoji: 🦥
+inputs:
+  - axes: bcyx
+    data_range: [-.inf, .inf]
+    data_type: float32
+    description: raw light-field
+    name: lf
+    preprocessing:
+      - kwargs:
+          {
+            axes: yx,
+            max_percentile: 99.8,
+            min_percentile: 5.0,
+            mode: per_dataset,
+          }
+        name: scale_range
+    shape: [1, 1, 1235, 1425]
+license: MIT
+links: [imjoy/BioImageIO-Packager]
+maintainers:
+  - { github_user: fynnbe, name: Fynn Beuttenmueller }
+name: HyLFM-Net-stat
+outputs:
+  - axes: bczyx
+    data_range: [-.inf, .inf]
+    data_type: float32
+    description: predicted volume
+    halo: [0, 0, 0, 0, 0]
+    name: prediction
+    shape: [1, 1, 49, 244, 284]
+sample_inputs:
+  [
+    https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/sample_input.tif,
+  ]
+sample_outputs:
+  [
+    https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/sample_output.tif,
+  ]
+tags:
+  [
+    light-field-microscopy,
+    pytorch,
+    fluorescence-light-microscopy,
+    image-reconstruction,
+    nuclei,
+    hylfm,
+  ]
+test_inputs:
+  [
+    https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/test_input.npy,
+  ]
+test_outputs:
+  [
+    https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/test_output.npy,
+  ]
+timestamp: "2023-02-15T09:34:43.433531Z"
+training_data: { id: 10.5281/zenodo.7612115 }
+type: model
+uploader: { email: bioimageiobot@gmail.com }
+version: 1
+version_number: 1
+weights:
+  onnx:
+    {
+      opset_version: 15,
+      parent: pytorch_state_dict,
+      sha256: 55ad061651840fe4b6da6733c52402ae3296392f74fed8a9482e4bc62040938f,
+      source: weights.onnx,
+    }
+  pytorch_state_dict:
+    architecture: https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/model.py:HyLFM_Net
+    architecture_sha256: fbd9428f7352a8c6bca8a47e9b85d9afe95edb35b716cc909f5cfc530f2280d3
+    dependencies: conda:https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/environment.yaml
+    kwargs:
+      c_in_3d: 64
+      c_res2d: [768, 768, 512, 256, u384, 512, 256]
+      c_res3d: [32, u16, 8, 8]
+      init_fn: xavier_uniform
+      kernel2d: 3
+      kernel3d: 3
+      last_kernel2d: 5
+      nnum: 19
+      z_out: 49
+    pytorch_version: 1.7
+    sha256: 461f1151d7fea5857ce8f9ceaf9cdf08b5f78ce41785725e39a77d154ccea90a
+    source: https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/weights.pt
+  torchscript:
+    {
+      parent: pytorch_state_dict,
+      pytorch_version: 1.7,
+      sha256: ec01e0c212b5eb422dda208af004665799637a2f2729d0ebf2e884e5d9966fc2,
+      source: https://uk1s3.embassy.ebi.ac.uk/public-datasets/bioimage.io/ambitious-sloth/staged/1/weights_torchscript.pt,
+    }
